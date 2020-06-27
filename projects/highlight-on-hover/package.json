@@ -1,6 +1,12 @@
 {
+
   "name": "highlight-on-hover",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "homepage": "https://github.com/pravalikavis/highlight-on-hover",
+  "author": {
+    "name": "V. Lakshmi Pravalika",
+    "url": "https://github.com/pravalikavis"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
@@ -8,5 +14,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/pravalikavis/highlight-on-hover.git"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/pravalikavis/highlight-on-hover/issues"
+  },
+  "keywords": [
+    "angular",
+    "highlight",
+    "highlightjs",
+    "highlight-on-hover",
+    "hover"
+  ]
 }
