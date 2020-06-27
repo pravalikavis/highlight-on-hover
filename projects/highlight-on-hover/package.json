@@ -1,0 +1,12 @@
+{
+  "name": "highlight-on-hover",
+  "version": "0.0.3",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-user/repo-url.git"
+  }
+}

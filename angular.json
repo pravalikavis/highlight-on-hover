@@ -2,5 +2,170 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "highlight-on-hover": {
+      "root": "projects/highlight-on-hover",
+      "sourceRoot": "projects/highlight-on-hover/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/highlight-on-hover/tsconfig.lib.json",
+            "project": "projects/highlight-on-hover/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/highlight-on-hover/src/test.ts",
+            "tsConfig": "projects/highlight-on-hover/tsconfig.spec.json",
+            "karmaConfig": "projects/highlight-on-hover/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/highlight-on-hover/tsconfig.lib.json",
+              "projects/highlight-on-hover/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "highlight-on-hover-app": {
+      "root": "projects/highlight-on-hover-app/",
+      "sourceRoot": "projects/highlight-on-hover-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/highlight-on-hover-app",
+            "index": "projects/highlight-on-hover-app/src/index.html",
+            "main": "projects/highlight-on-hover-app/src/main.ts",
+            "polyfills": "projects/highlight-on-hover-app/src/polyfills.ts",
+            "tsConfig": "projects/highlight-on-hover-app/tsconfig.app.json",
+            "assets": [
+              "projects/highlight-on-hover-app/src/favicon.ico",
+              "projects/highlight-on-hover-app/src/assets"
+            ],
+            "styles": [
+              "projects/highlight-on-hover-app/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/highlight-on-hover-app/src/environments/environment.ts",
+                  "with": "projects/highlight-on-hover-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "highlight-on-hover-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "highlight-on-hover-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "highlight-on-hover-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/highlight-on-hover-app/src/test.ts",
+            "polyfills": "projects/highlight-on-hover-app/src/polyfills.ts",
+            "tsConfig": "projects/highlight-on-hover-app/tsconfig.spec.json",
+            "karmaConfig": "projects/highlight-on-hover-app/karma.conf.js",
+            "styles": [
+              "projects/highlight-on-hover-app/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/highlight-on-hover-app/src/favicon.ico",
+              "projects/highlight-on-hover-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/highlight-on-hover-app/tsconfig.app.json",
+              "projects/highlight-on-hover-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "highlight-on-hover-app-e2e": {
+      "root": "projects/highlight-on-hover-app-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/highlight-on-hover-app-e2e/protractor.conf.js",
+            "devServerTarget": "highlight-on-hover-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "highlight-on-hover-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/highlight-on-hover-app-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "highlight-on-hover"
 }

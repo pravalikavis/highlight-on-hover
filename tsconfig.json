@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "highlight-on-hover": [
+        "dist/highlight-on-hover"
+      ],
+      "highlight-on-hover/*": [
+        "dist/highlight-on-hover/*"
+      ]
+    }
   }
 }
